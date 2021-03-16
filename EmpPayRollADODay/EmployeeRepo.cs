@@ -111,7 +111,18 @@ namespace EmpPayRollADODay26
             cmd.ExecuteNonQuery();
             connection.Close();
         }
-        
+        public void Operations()
+        {
+            string query = @"select sum(salary) from employee_payroll where gender='f';
+                             select avg(salary) from employee_payroll where gender='f';
+                             select min(salary) from employee_payroll where gender='f';
+                             select max(salary) from employee_payroll where gender='f';";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            connection.Open();
+            cmd.CommandType = CommandType.Text;
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
 
     }
 }

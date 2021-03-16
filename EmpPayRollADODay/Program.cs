@@ -15,7 +15,7 @@ namespace EmpPayRollADODay26
             Employee employee = new Employee();
             employee.id = 10;
             employee.name = "Vijay";
-            employee.basicPay = 22500;
+            employee.basic_pay = 22500;
             employee.gender = 'M';
             employee.phone = 9900422544;
             employee.address = "Kalaburagi";
