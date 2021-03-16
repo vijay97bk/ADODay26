@@ -1,42 +1,34 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 
-namespace EmpPayRollADODay
+namespace EmpPayRollADODay26
 {
     class Program
     {
         static void Main(string[] args)
         {
-            EmpPayroll empPayroll = new EmpPayroll();
-            int option;
-            do
-            {
-                Console.WriteLine("1)Insert Record");
-                Console.WriteLine("2)Read All records");
-                Console.WriteLine("3)Update Record");
-                Console.WriteLine("4)Delete Record");
-                Console.WriteLine("5)Exit");
-                Console.WriteLine("Enter Choice");
-                option = Convert.ToInt32(Console.ReadLine());
-                switch (option)
-                {
-                    case 1:
-                        empPayroll.InsertRecordStoredProcedure();
-                        break;
-                    case 2:
-                        empPayroll.ReturnAllRecords();
-                        break;
-                    case 3:
-                        empPayroll.ReturnAllRecords();
-                        empPayroll.UpdateRecord();
-                        break;
-                    case 4:
-                        empPayroll.ReturnAllRecords();
-                        empPayroll.DeleteRecordStoredProcedure();
-                        break;
-                    default:
-                        break;
-                }
-            } while (option != 5);
+            EmployeeRepo Repo = new EmployeeRepo();
+            Repo.GetAllEmployee();
+
+            Employee employee = new Employee();
+            employee.id = 10;
+            employee.name = "Vijay";
+            employee.basicPay = 22500;
+            employee.gender = 'M';
+            employee.phone = 9900422544;
+            employee.address = "Kalaburagi";
+            employee.department = "IT";
+            employee.deduction = 1000;
+            employee.taxable_Pay = 500;
+            employee.income_tax = 500;
+            employee.net_pay = 24500;
+            
+
+            Repo.AddEmployee(employee);
+
+         
         }
     }
 }
