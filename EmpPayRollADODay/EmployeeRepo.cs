@@ -87,7 +87,10 @@ namespace EmpPayRollADODay26
             string query = @"update employee_payroll set basic_pay=3000000 where name='Terisa';";
             SqlCommand cmd = new SqlCommand(query, connection);
             connection.Open();
+            cmd.CommandType = CommandType.Text;
+            cmd.ExecuteNonQuery();
             connection.Close();
         }
+
     }
 }
